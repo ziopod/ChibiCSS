@@ -1,18 +1,19 @@
 #Mais qu'est-ce?#
 *Chibi Css est un framework css qui permet de structurer rapidement le design d'un site.*
 
-Il est composé de feuilles de style légère qui offre une base de départ pertinente à l'élaboration d'un design.
+Il est compos√© de feuilles de style l√©g√®re qui offre une base de d√©part pertinente √† l'√©laboration d'un design.
 
 **Composition**
+
   - reset.ccs from <http://meyerweb.com/eric/tools/css/reset/> by Eric Meyer  
-    Pour remettre vos réglages à zéro.
+    Pour remettre vos r√©glages √† z√©ro.
   - grid_960.css from <http://960.gs/> by Nathan Smith  
-    Pour structurer vos pages
+    Pour structurer vos pages.
   - typo.css
-    Pour avoir un élégant formatage de base de vos typos.
+    Pour avoir un √©l√©gant formatage de base de vos typos.
   - form.css  
-    Pour avoir des formulaires qui ressemble à quelque chose.
+    Pour avoir des formulaires qui ressemble √† quelque chose.
 
 
 
-Des feuilles de style avancées seront disponible au fil du développement, ainsi qu'une série de plugins offrant des stylisations spécifiques.
+Des feuilles de style avanc√©es seront disponible au fil du d√©veloppement, ainsi qu'une s√©rie de plugins offrant des stylisations sp√©cifiques.
