@@ -3,15 +3,15 @@
 
 Il est composé de feuilles de style légère qui offre une base de départ pertinente à l'élaboration d'un design.
 
-**Composition**
+##Composition##
 
-  - reset.ccs from <http://meyerweb.com/eric/tools/css/reset/> by Eric Meyer  
+  - **reset.ccs** From <http://meyerweb.com/eric/tools/css/reset/> by Eric Meyer  
     Pour remettre vos réglages à zéro.
-  - grid_960.css from <http://960.gs/> by Nathan Smith  
+  - **grid_960.css** From <http://960.gs/> by Nathan Smith  
     Pour structurer vos pages.
-  - typo.css
+  - **typo.css**
     Pour avoir un élégant formatage de base de vos typos.
-  - form.css  
+  - **form.css**  
     Pour avoir des formulaires qui ressemble à quelque chose.
 
 
