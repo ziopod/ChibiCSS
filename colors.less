@@ -1,0 +1,100 @@
+/** Colors **/
+/* Naming example
+http://richbray.me/cms/bootstrap/
+$color-border;
+$color-border-dark;
+$color-border-light;
+ 
+$color-highlight;
+ 
+$color-link;
+$color-link-dark;
+$color-link-light;
+ 
+$color-text;
+$color-text-light;
+$color-text-lightest;
+*/
+// Naming colors
+@color-text: @color-muted-darker;
+// Base colours
+@color: @color-primary;
+@color-desaturate: @color-primary-saturate;
+@color-saturate: @color-primary-desaturate;
+@color-primary		: #5886D0;
+@color-primary-saturate: saturate(@color-primary, 15);
+@color-primary-desaturate: desaturate(@color-primary, 15);
+@color-luma: luminance(@color-primary);
+// Variants
+@color-complementary: spin(@color-primary, 180);
+@color-analogous-right: spin(@color-primary, 15);
+@color-analogous-left: spin(@color-primary, -15);
+@color-analogous-right-saturate: saturate(@color-analogous-right, 15);
+@color-analogous-right-desaturate: desaturate(@color-analogous-right, 15);
+@color-analogous-left-saturate: saturate(@color-analogous-left, 15);
+@color-analogous-left-desaturate: desaturate(@color-analogous-left, 15);
+
+// Dark / light
+@color-darker: darken(@color, @color-luma * 0.66);
+@color-dark: darken(@color, @color-luma * 0.33);
+@color-light: darken(@color, -@color-luma * 0.33);
+@color-lighter: darken(@color, -@color-luma * 0.66);
+// Muted
+// @color-muted: desaturate(@color, saturation(@color) * 0.666);
+@color-muted: desaturate(@color, saturation(@color) * 0.98);
+@color-muted-darker: darken(@color-muted, @color-luma * 0.66);
+@color-muted-dark: darken(@color-muted, @color-luma * 0.33);
+@color-muted-light: darken(@color-muted, -@color-luma * 0.33);
+@color-muted-lighter: darken(@color-muted, -@color-luma * 0.66);
+// B&W
+@color-black: #000;
+@color-white: #FFF;
+// Complementary
+@color-complementary-luma: luma(@color-complementary);
+@color-complementary-saturate: saturate(@color-complementary, 15);
+@color-complementary-desaturate: desaturate(@color-complementary, 15);
+@color-complementary-darker: darken(@color-complementary, @color-complementary-luma * 0.66);
+@color-complementary-dark: darken(@color-complementary, @color-complementary-luma * 0.33);
+@color-complementary-light: darken(@color-complementary, -@color-complementary-luma * 0.33);
+@color-complementary-lighter: darken(@color-complementary, -@color-complementary-luma * 0.66);
+@color-complementary-muted: desaturate(@color-complementary, saturation(@color-complementary) * 0.98);
+@color-complementary-muted-darker: darken(@color-complementary-muted, @color-complementary-luma * 0.66);
+@color-complementary-muted-dark: darken(@color-complementary-muted, @color-complementary-luma * 0.33);
+@color-complementary-muted-light: darken(@color-complementary-muted, -@color-complementary-luma * 0.33);
+@color-complementary-muted-lighter: darken(@color-complementary-muted, -@color-complementary-luma * 0.66);
+
+// 
+// @color-box
+// @color-box-dark
+// @color-box-darker
+// @color
+// Utilities colours
+@color-info			: #5BC0DE;
+@color-warning		: #F0AD4E;
+@color-danger		: #D9534F;
+@color-success		: #5CB85C;
+
+.colomaton(@color, @suffix)
+{
+	@luma: luma(@color);
+	@luminance: luminance(@color);
+	@hue: hue(@color);
+	@saturation: saturation(@color);
+	@lightness: lightness(@color);
+	@red: red(@color);
+	@green: green(@color);
+	@blue: blue(@color);
+	@alpha: alpha(@color);
+	@hexadecimal: @color;
+	.color-@{suffix}:before
+	{
+		white-space: pre;
+		content: "@{suffix} \A @{hexadecimal}";
+	}
+
+	.color-@{suffix}{
+		background-color: @color;
+		&:extend(.colors .color-block);
+		color: contrast(@color);
+	}
+}

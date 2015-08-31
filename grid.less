@@ -1,0 +1,219 @@
+//// Grid system ////
+//// Fluid & fix grid system ////
+
+
+//// Variables ////
+// Grid proportion base on font-size
+@font-size		: 1em;
+// Column and gutter width
+// @column-width	: unit(72 / @font-size, em); // ex. 6em for 18px font-size;
+// @gutter-width	: unit(24 / @font-size, em); // ex. 1.5em for 18px font-size;
+// @column-width	: 5.3333 * @font-size; // ex. 6em for 18px font-size;
+// @gutter-width	: 1.3333 * @font-size; // ex. 1.5em for 18px font-size;
+
+// Define in pixel, auto converted in rem
+@column-width : 96px;
+@gutter-width : 24px;
+
+//
+@useragent-font-size : 16px;
+@column-width : unit((96px / @useragent-font-size), rem);
+@gutter-width : unit((24px / @useragent-font-size), rem);
+
+
+
+// Devices size
+/*
+TODO : Pour les points d'arret, utiliser plutot une mesure en nbre de colonnes
+On determine déjà que :  1 col = colonne + gouttière
+Si l'on demande un point d'arret de 3 colonnes par exemple, on obtient notre mesure pour notre point d'arret
+Cela rend le système plus cohérent : 
+ - 1 modulo de fonte par défaut du navigateur équivaut à 16px
+ - Nous pouvons choisir une taille par défaut supérrieur : 18(px) soit 1.125 (em) du modulo navigateur
+ - Nous pourvons choisir une largeur de colonne (+gouttiere) de 72(px) soit 5.3334(em) du modulo personnalisé (18)
+
+Nous devons être cohérent entre le système typo et le système de grille :
+ - Soit : utiliser une référence pixel (qui sera traduit en 'em')
+ - Soit : utiliser une référence en ratio (qui sera traduit en 'em')
+ - Soit : TODO voir si il peu être simple de permettre de choisir son système de référence (pixel ou ratio)
+
+Il est pertinent de pouvoir configurer sont layout dans une référence "parlante", le pixel; et 
+de laisser le système traduire les valeur dans un sytème de référence plus complexe, le ratio (em)
+
+D'un autre point de vue, il est intéressant de penser en ratio (frameless) : 
+  - "Combien de colonnes je peux placer sur un écran moyen"
+  - "Combien de caractère je me peut placer sur une ligne"
+
+ Un paramètre "nbre-de-caractère-par-colonne" (obtenu avec mon ratio) pour être intéressant comme approche : 
+  @colonne+gouttière : 5 * @useragent-defaut-fontsize;
+  // Avec la typo choisi et la taille de colonne choisie, on determine la taille de typo (par défaut)
+  @nbre-carac-par-colonne : 5.5 (44 caractères pour 8 colonnes (largeur de lecture));
+  // À partir de là il possible de créer un mixins permettant de modifier la taille de fonte sur uen référence de largeur plus grande
+  44 caractères pour une largeur de lecture de 8 colonne = font-size: 1.125em;
+  44 caractère pour une largeur de lecture de 12 colonne = 1.6875em;
+
+*/
+// Narrow breakpoint, mobile landscape
+@screen-narrow	: 480px;
+// Small breakpoint, small tablet portrait
+@screen-small	: 600px;
+// Medium breakpoint, tablet landscape & small screen
+@screen-medium	: 1024px;
+// Large breakpoint, standard screen
+@screen-large	: 1280px;
+// Wide breakpoint, wide screen
+@screen-wide	: 1400px;
+// Huge breakpoint, huge screen
+@screen-huge	: 1920px;
+
+
+// Fluid wrapper
+.wrapper()
+{
+	width: auto;
+}
+// Fixe wrapper
+.wrapper(@cols)
+{
+	width: @cols * @column-width;
+	margin: 0 auto;
+	overflow: hidden;
+	.cf();
+}
+
+// Row 
+.row()
+{
+	.cf();
+	clear: left;
+	padding-left: 0;
+	padding-right: 0;
+	.nested();
+}
+.nested()
+{
+	margin-left: -@gutter-width / 2;
+	margin-right: -@gutter-width / 2;
+}
+
+// Init box-sizing column
+.column-init()
+{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	// For IE6 et 7
+	// https://github.com/Schepp/box-sizing-polyfill
+	// http://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+	float: left;
+	clear: none;
+	padding-left: @gutter-width / 2;
+	padding-right: @gutter-width / 2;
+	min-height: 1px;
+	.column-fluid(1, 1);
+}
+
+// Column width in em
+.column(@cols)
+{
+	width: @cols * @column-width;
+}
+// Column with pull option
+.column(@cols, @position)
+{
+	.column(@cols);
+	.pull(@position);
+}
+// Fluid column in percent
+.column-fluid(@numerator, @denominator)
+{
+	width: 100 * (@numerator / @denominator) * 1%;
+}
+// Fluid column pull option
+// .column-fluid-width(@numerator, @denominator, @positon)
+// {
+// 	.column-fluid-width(@numerator, @denominator);
+// }
+
+// Pull/push
+.pull(@cols) // AKA pull-column()
+{
+	margin-left: @cols * @column-width;
+}
+.unpull()
+{
+	margin-left: 0;
+}
+.push(@cols) // AKA pull-column()
+{
+	margin-right: @cols * @column-width;
+}
+
+// Show/hide
+.show(@size)
+{
+	.show-@{size} {display:block;} // inline ?
+}
+.hide(@size)
+{
+ 	.hide-@{size}{display:none;}
+ }
+
+.show-row()
+{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+.show-column()
+{
+	background-color: rgba(255, 0, 0, 0.1);
+	outline: 1px solid rgba(255, 0, 0, 0.3);
+	padding-top: @gutter-width / 2;
+	padding-bottom: @gutter-width / 2;
+	padding-left: @gutter-width / 2;
+	padding-right: @gutter-width / 2;
+
+}
+
+.clear{clear: left;}
+
+// Grid generator
+.grid-generator (@index, @prefix) when (@index > 0)
+{
+	// Column fixe 
+	.@{prefix}@{index} {
+		.column-width(@index);
+		// width: @column * @index;
+	}	
+	.pull-@{prefix}@{index} { // TODO: perform that;
+		.pull(@index);
+	}
+	.grid-generator(@index - 1, @prefix);
+}
+
+.fluid-grid-generator (@numerator, @denominator, @prefix) when (@numerator > 0)
+{
+	.@{prefix}@{numerator}-@{denominator} {
+		.column-fluid(@numerator, @denominator);
+	}
+
+	.fluid-grid-generator(@numerator - 1, @denominator, @prefix);
+}
+
+
+/**
+* Clearfix
+* From http://nicolasgallagher.com/micro-clearfix-hack/
+**/
+.cf()
+{
+	*zoom: 1;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
