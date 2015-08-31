@@ -1,0 +1,15 @@
+{
+	"name": "ziopod/chibiCSS",
+	"type": "CSS",
+	"description": " Little and lovely CSS framework",
+	"Keyword": ["Framework", "CSS", "LESS"],
+	"homepage": "http://ziopod.com",
+	"licence": "MIT",
+	"authors": [
+		{
+			"name": "Steve Beau",
+			"email": "ziopod@gmail.com",
+			"role": "developer"
+		}
+	]
+}
