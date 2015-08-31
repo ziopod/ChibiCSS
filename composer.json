@@ -1,6 +1,6 @@
 {
 	"name": "ziopod/chibicss",
-	"type": "CSS",
+	"type": "less-css",
 	"description": " Little and lovely CSS framework",
 	"Keyword": ["Framework", "CSS", "LESS"],
 	"homepage": "http://ziopod.com",
@@ -14,7 +14,7 @@
 	],
 	"extra": {
 		"installer-paths": {
-			"vendor/{$vendor}/{$name}": ["type:kohana-module"]
+			"assets/css/{$name}": ["type:less-css"]
 		}
 	}
 }
