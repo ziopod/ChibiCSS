@@ -1,0 +1,62 @@
+/**
+* ChibiCSS
+* A simple and lovely CSS framework
+*
+* By Ziopod
+* MIT License
+* http://github.com/ziopod/chibicss
+**/
+
+/**
+* Tools
+*
+* This does not write any CSS, it just brings you tools for build your design.
+* Vanilla, layout and styleguide LESS files depend on these tools.
+**/
+@import '_tools/grid.less';
+@import '_tools/typo.less';
+@import '_tools/colors.less';
+
+/**
+* Normalize.css v3.0.3 
+* 
+* The perfect normalizer by Nicolas Gallagher https://github.com/necolas/normalize.css/blob/master/normalize.css
+**/
+@import 'external/normalize.css';
+
+/**
+* Vanilla CSS
+*
+* This file perform a simple and neutral presentation for HTML elements.
+**/
+@import 'vanilla.less'; // découper en plusieurs fichiers
+
+/**
+* Content prototyping
+*
+* Create a neutral presentation to encourage the content first approche.
+*
+* Just for prototyping steps, do not use in production design.
+**/
+@import 'prototype.less';
+
+/**
+* Styleguide
+*
+* For demo your design. Use this file just to show the appearence of various
+* elements of your design.
+*
+* Do not use in production design.
+**/
+// @import 'styleguide.less';
+
+/**
+* Layout
+*
+* This file provide pre-build some structures for you design. If you need more
+* stylish default style.
+*
+* TODO : Evaluer si ce fichier est vraiment necessaire, donner la priorité au prototype
+* Note : Ne pas oublier l'usage de l'import par référence (@import (reference) url)
+**/
+// @import 'layout.less';
