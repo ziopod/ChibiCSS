@@ -1,0 +1,98 @@
+/**
+* Typo
+*
+* Set of variables and mixins for typo usages
+*
+* @package ChibiCSS
+**/
+
+/**
+* Configuration (move to separate file)
+**/
+// Font families
+@font-family-base	: Georgia, serif;
+@font-family-heading: Arial, sans-serif;
+@font-family-alt	: Arial, sans-serif;
+@font-family-mono	: "Andale Mono", "Lucida Console", monospace;
+// Font sizes
+@line-height		: 1.5em;
+@xxxx-large			: 60px;
+@xxx-large			: 48px;
+@xx-large			: 36px;
+@x-large			: 28px;
+@large				: 24px;
+@normal				: 18px;
+@small				: 16px;
+@x-small			: 14px;
+@xx-small			: 12px;
+// Font weight
+@bold				: 600;
+@regular			: 400;
+@light				: 200;
+// Quotes
+@quotes				: '«\00A0' '\00A0»' '"' '"'; // French style quotes
+
+
+/**
+* Utilities variables
+**/
+// Pixem
+@pixem: unit(1 / @normal, rem);
+
+/**
+* Pixem
+* Convert pixel unit size to REM size
+*
+* @param	mixed	size
+**/
+.pixem(@size: 1px)
+{
+	@return: unit(@size / @normal, rem);
+}
+
+/**
+* Font-size
+* Set REM font-size, based on size name
+* Usage: .font-size(@large)
+*
+* @param	string		font-size
+**/
+.font-size(@size: @normal)
+{
+	.pixem(@size);
+	font-size: unit(@return, rem);
+}
+
+/**
+* Font
+* Set shorthanded font 
+*
+* @param	string		font-size
+* @param	string		font-family type
+**/
+.font(@size: @normal, @family-type: base, @font-variant: normal)
+{
+	@font-family : 'font-family-@{family-type}';
+	.pixem(@size);
+	font: @font-variant @return/@line-height @@font-family;
+}
+
+/*
+* Baseline
+* Set baseline (experimentale)
+*
+* cf. http://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/
+* cf. http://8gramgorilla.com/the-masochism-of-implementing-css-baseline/
+*
+* @param	string		font-size
+**/
+.baseline(@size: @normal)
+{
+	@line-height-px: @normal * @line-height;
+	@line-count: ceil(@size / @line-height-px);
+	@multiline-height: @line-count * @line-height-px;
+	line-height: unit(@multiline-height / @size, em);
+	.font-size(@size);
+	margin-bottom: unit(@line-height-px / @size, em);
+
+}

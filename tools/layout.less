@@ -1,0 +1,34 @@
+/**
+* Layout
+*
+* Stuffs for layout design
+*
+* @package ChibiCSS
+**/
+
+/**
+* Label
+* Generate label
+*
+* @param	color	Label background color
+**/
+.label(@color: @color)
+{
+	background-color: @color;
+	color: contrast(@color, @color-black, @color-white);
+	display: inline-block;
+	font-family: @font-family-alt;
+	.baseline(@xxsmall);
+	padding: 0 1em;
+}
+
+/**
+* Label color
+* 
+* @param	color	Label background color
+**/
+.label-color(@color)
+{
+	background-color: @color;
+	color: contrast(@color, @color-black, @color-white);
+}

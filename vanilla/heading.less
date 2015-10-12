@@ -5,3 +5,66 @@
 *
 * @package ChibiCSS
 **/
+
+// Heading
+h1, h2, h3, h4, h5, h6
+{
+	font-family: @font-family-heading;
+	font-weight: @bold;
+}
+
+h1{.baseline(@xxxx-large);}
+h2{.baseline(@xxx-large);}
+h3{.baseline(@xx-large);}
+h4{.baseline(@x-large);}
+h5{.baseline(@large);}
+h6{.baseline(@normal);}
+
+// Semantic nested heading size (use a separate optionnal file?)
+:-moz-any(section, article, aside, nav)
+{
+	h1 { .baseline(@xxx-large);}
+	h2 { .baseline(@xx-large);}
+	h3 { .baseline(@x-large);}
+	h4 { .baseline(@large);}
+	h5 { .baseline(@normal);}
+
+	:-moz-any(section, article, aside, nav)
+	{
+		h1 { .baseline(@xx-large);}
+		h2 { .baseline(@x-large);}
+		h3 { .baseline(@large);}
+		h4 { .baseline(@normal);}
+
+		:-moz-any(section, article, aside, nav)
+		{	
+			h1 { .baseline(@x-large);}
+			h2 { .baseline(@large);}
+			h3 { .baseline(@normal);}
+		}
+	}
+}
+:-webkit-any(section, article, aside, nav)
+{
+	h1 { .baseline(@xxx-large);}
+	h2 { .baseline(@xx-large);}
+	h3 { .baseline(@x-large);}
+	h4 { .baseline(@large);}
+	h5 { .baseline(@normal);}
+	h6 { .baseline(@normal);}
+
+	:-webkit-any(section, article, aside, nav)
+	{
+		h1 { .baseline(@xx-large);}
+		h2 { .baseline(@x-large);}
+		h3 { .baseline(@large);}
+		h4 { .baseline(@normal);}
+
+		:-webkit-any(section, article, aside, nav)
+		{	
+			h1 { .baseline(@x-large);}
+			h2 { .baseline(@large);}
+			h3 { .baseline(@normal);}
+		}
+	}
+}

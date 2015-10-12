@@ -5,3 +5,31 @@
 *
 * @package ChibiCSS
 **/
+
+fieldset
+{
+	margin-bottom: 1.5em;
+	*:last-child
+	{
+		margin-bottom: 0;
+	}
+}
+legend
+{
+	font-weight: @bold;
+	margin-bottom: 1.5em;
+	.font(@large, alt, @bold);
+}
+button,
+input,
+textarea,
+select,
+optgroup,
+{
+	font: inherit;
+	color: inherit;
+}
+optgroup
+{
+	font-weight: @bold;
+}

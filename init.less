@@ -13,16 +13,17 @@
 * This does not write any CSS, it just brings you tools for build your design.
 * Vanilla, layout and styleguide LESS files depend on these tools.
 **/
-@import '_tools/grid.less';
-@import '_tools/typo.less';
-@import '_tools/colors.less';
+@import 'tools/grid.less';
+@import 'tools/typo.less';
+@import 'tools/color.less';
 
 /**
-* Normalize.css v3.0.3 
+* Reset CSS v2.0
 * 
-* The perfect normalizer by Nicolas Gallagher https://github.com/necolas/normalize.css/blob/master/normalize.css
+* The pretty simple reset from Eric Meyer http://meyerweb.com/eric/tools/css/reset/
 **/
-@import 'external/normalize.css';
+@import (less) 'external/reset.css';
+// @import (less) 'external/normalize.css';
 
 /**
 * Vanilla CSS

@@ -5,3 +5,129 @@
 *
 * @package ChibiCSS
 **/
+
+// Define root base font
+html
+{
+	// We assume that user agent default font size is 16px
+	font-size:  unit(@normal / 16px * 100, %);
+}
+
+body
+{
+	.font();
+	color: @color-text;
+	padding: 1.5em;
+}
+
+// Structural
+p,
+article,
+section,
+aside,
+figure,
+nav
+{
+	margin-bottom: 1.5em;
+}
+
+hr
+{
+	border: none;
+	height: 2 * @pixem;
+	background-color: @color;
+	margin: 1.5em 0;
+}
+address
+{
+	font-style: italic;
+	margin-bottom: 1.5em;
+}
+
+// Emphasis
+small
+{
+	.font-size(@small);
+}
+
+em, i
+{
+	font-style: italic;
+}
+
+strong, b
+{
+	font-weight: @bold;
+}
+
+// Code
+pre,
+code,
+samp,
+kbd
+{
+	.font(@normal, mono);
+	.baseline(@small);
+	background-color: @color-muted-lighter;
+	padding: .2em .3em .28em;
+}
+
+pre
+{
+	padding: 1.5em;
+
+	*:last-child
+	{
+		margin-bottom: 0;
+	}
+}
+
+var
+{
+	font-style: italic;
+}
+
+// Citations
+blockquote
+{
+	padding: 1.5em;
+	background-color: @color-muted-lighter;
+	margin-bottom: 1.5em;
+
+	*:last-child
+	{
+		margin-bottom: 0;
+	}
+
+	footer::before
+	{
+		content: "—\00A0";
+	}
+}
+
+q, cite
+{
+	quotes: @quotes; 
+
+	&:before
+	{
+		content: open-quote;
+	}
+	&:after
+	{
+		content: close-quote;
+	}
+}
+
+// Definition, mark
+dfn
+{
+	font-style: italic;
+}
+
+mark
+{
+	background-color: @color-highlight;
+	color: @color-text;
+	padding: .2em .3em .28em;
+}

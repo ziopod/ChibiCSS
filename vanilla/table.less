@@ -5,3 +5,23 @@
 *
 * @package ChibiCSS
 **/
+
+table{
+	margin-bottom: 1.5em;
+	width: 100%;
+}
+th, td {
+	padding: 0.75em 0.5em;
+	border-bottom: 1 * @pixem solid @color-muted-light;
+}
+th{
+	text-align: left;
+	border-bottom: 2 * @pixem solid @color-muted-light;
+	padding-top: 0.75em - 1 * @pixem;
+	font-weight: @bold;
+}
+caption
+{
+	.font(@small, alt, italic);
+	font-weight: @light;
+}

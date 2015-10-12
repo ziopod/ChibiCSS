@@ -1,0 +1,116 @@
+/**
+* Colors
+*
+* Variables and mixins for colors usages.
+* cf. http://richbray.me/cms/bootstrap/
+* cf. http://sass-guidelin.es/#colors-and-variables
+*
+* @package ChibiCSS
+**/
+
+/**
+* Configuration
+**/
+@color-skyblue			: #5886D0;
+@color					: @color-skyblue;
+// B&W
+@black					: #000;
+@white					: #FFF;
+// Utilities colors
+@color-info				: #5BC0DE;
+@color-warning			: #F0AD4E;
+@color-danger			: #D9534F;
+@color-success			: #5CB85C;
+@color-highlight		: #FF0;
+
+// Text
+@color-text				: @black;
+/*
+@color-text-light		:
+@color-text-lighter	:
+*/
+// Link
+/*@color-link			:
+@color-link-dark		:
+@color-link-light		:
+@color-link-hover		:
+@color-link-visited		:
+@color-link-active		:
+*/
+// Border
+/*@color-border
+@color-border-dark		:
+@color-border-light		:
+*/
+// Background
+/*
+@color-background		:
+@color-background-dark	:
+@color-background-light	:
+
+/**
+* Colors variantes
+**/
+// Color values
+@luma:	luma(@color);
+@hue:	hue(@color);
+// Shades and tints
+@color-darker: darken(@color, @luma * 0.66);
+@color-dark: darken(@color, @luma * 0.33);
+@color-light: lighten(@color, @luma * 0.33);
+@color-lighter: lighten(@color, @luma * 0.66);
+@color-saturate: saturate(@color, 15);
+@color-desaturate: desaturate(@color, 15);
+// Monochromatic variant
+@color-mono-100: hsl(@hue, 100%, 100%);
+@color-mono-75: hsl(@hue, 75%, 100%);
+@color-mono-50: hsl(@hue, 50%, 100%);
+@color-mono-25: hsl(@hue, 25%, 100%);
+@color-mono-10: hsl(@hue, 10%, 100%);
+// Achromatic (muted) variant
+@color-muted: desaturate(@color, saturation(@color) * 0.66);
+@color-muted-darker: darken(@color-muted, @luma * 0.66);
+@color-muted-dark: darken(@color-muted, @luma * 0.33);
+@color-muted-light: lighten(@color-muted, (100 - @luma) * 0.33);
+@color-muted-lighter: lighten(@color-muted, (100 - @luma) * 0.50);
+// Complementary
+@color-complementary: spin(@color, 180);
+// Analogous
+@color-analogous-left: spin(@color: 15);
+@color-analogous-right: spin(@color, -15);
+// Triadic
+@color-triadic-left: spin(@color, 120);
+@color-triadic-right: spin(@color, -120);
+
+/**
+* Colomaton
+* Show informations about color
+*
+* @param	color	Color you want inforamtion
+* @param	string	Css class suffix
+**/
+.colomaton(@color, @suffix)
+{
+	// Set of informations
+	@luma: luma(@color);
+	@hue: hue(@color);
+	@saturation: saturation(@color);
+	@lightness: lightness(@color);
+	@red: red(@color);
+	@blue: blue(@color);
+	@green: green(@color);
+	@alpha: alpha(@color);
+	@hexadecimal: @color;
+
+	.color-@{suffix}:before
+	{
+		white-space: pre;
+		content: "@{suffix} @{hexadecimal} \A HSL @{hue}° @{saturation} @{lightness} \A RGB @{red} @{green} @{blue} @{alpha} \A Luma @{luma}";
+	}
+
+	.color-@{suffix}
+	{
+		background-color: @color;
+		color: contrast(@color);
+	}
+}
