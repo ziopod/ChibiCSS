@@ -26,18 +26,22 @@ article,
 section,
 aside,
 figure,
+section
 nav
 {
 	margin-bottom: 1.5em;
 }
 
+section,
 hr
 {
 	border: none;
-	height: 2 * @pixem;
-	background-color: @color;
-	margin: 1.5em 0;
+	border-top: 2 * @pixem solid @color;
+	margin: 0;
+	padding: 1.5em 0 0;
 }
+
+
 address
 {
 	font-style: italic;
