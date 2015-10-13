@@ -1,0 +1,172 @@
+/**
+* Grid
+*
+* Variables and mixins for grid usage
+*
+* @package ChibiCSS
+**/
+
+/** Configuration **/
+@column-width	: unit(96px * @pixem, rem);
+@gutter-width	: unit(24px * @pixem, rem);
+
+// Narrow breakpoint, mobile landscape
+@screen-narrow	: 480px;
+// Small breakpoint, small tablet portrait
+@screen-small	: 600px;
+// Medium breakpoint, tablet landscape & small screen
+@screen-medium	: 1024px;
+// Large breakpoint, standard screen
+@screen-large	: 1280px;
+// Wide breakpoint, wide screen
+@screen-wide	: 1400px;
+// Huge breakpoint, huge screen
+@screen-huge	: 1920px;
+
+
+/**
+* Grid toolbox
+**/
+
+// Fluid wrapper
+.wrapper()
+{
+	width: auto;
+}
+
+// Fixe wrapper
+.wrapper(@cols)
+{
+	width: @cols * @column-width;
+	margin: 0 auto;
+	overflow: hidden;
+	.cf();
+	clear: both;
+}
+
+// Row 
+.row()
+{
+	clear: left;
+	padding-left: 0;
+	padding-right: 0;
+	.nested();
+	.cf();
+}
+.nested()
+{
+	margin-left: -@gutter-width / 2;
+	margin-right: -@gutter-width / 2;
+}
+
+// Init box-sizing column
+.column-init()
+{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	// For IE6 et 7
+	// https://github.com/Schepp/box-sizing-polyfill
+	// http://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+	float: left;
+	clear: none;
+	padding-left: @gutter-width / 2;
+	padding-right: @gutter-width / 2;
+	min-height: 1px;
+	.column-fluid(1, 1);
+}
+
+// Column width in em
+.column(@cols)
+{
+	width: @cols * @column-width;
+	// .nested();
+}
+// Column with pull option
+.column(@cols, @position)
+{
+	.column(@cols);
+	.pull(@position);
+}
+// Fluid column in percent
+.column-fluid(@numerator, @denominator)
+{
+	width: 100 * (@numerator / @denominator) * 1%;
+}
+
+// Pull/push
+.pull(@cols) // AKA pull-column()
+{
+	margin-left: @cols * @column-width;
+}
+.unpull()
+{
+	margin-left: 0;
+}
+.push(@cols) // AKA pull-column()
+{
+	margin-right: @cols * @column-width;
+}
+
+// Show/hide
+.show(@size)
+{
+	.show-@{size} {display:block;} // inline ?
+}
+.hide(@size)
+{
+ 	.hide-@{size}{display:none;}
+ }
+
+.show-row()
+{
+	margin-top: 0.75em;
+	margin-bottom: 0.75em;
+}
+.show-column()
+{
+	background-color: rgba(255, 0, 0, 0.1);
+	outline: 1px solid rgba(255, 0, 0, 0.3);
+	padding-top: @gutter-width / 2;
+	padding-bottom: @gutter-width / 2;
+	padding-left: @gutter-width / 2;
+	padding-right: @gutter-width / 2;
+
+}
+
+// Grid generator
+.grid-generator (@index, @prefix) when (@index > 0)
+{
+	// Column fixe 
+	.@{prefix}@{index} {
+		.column(@index);
+	}	
+
+	.grid-generator(@index - 1, @prefix);
+}
+
+.fluid-grid-generator (@numerator, @denominator, @prefix) when (@numerator > 0)
+{
+	.@{prefix}@{numerator}-@{denominator} {
+		.column-fluid(@numerator, @denominator);
+	}
+
+	.fluid-grid-generator(@numerator - 1, @denominator, @prefix);
+}
+
+/**
+* Clearfix
+* From http://nicolasgallagher.com/micro-clearfix-hack/
+**/
+.cf()
+{
+	*zoom: 1;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
