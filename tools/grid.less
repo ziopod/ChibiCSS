@@ -23,7 +23,7 @@
 // Huge breakpoint, huge screen
 @screen-huge	: 1920px;
 
-
+@debug			: false;
 /**
 * Grid toolbox
 **/
@@ -42,6 +42,11 @@
 	overflow: hidden;
 	.cf();
 	clear: both;
+
+	& when(@debug = true)
+	{
+		.show-wrapper();
+	}
 }
 
 // Row 
@@ -52,6 +57,11 @@
 	padding-right: 0;
 	.nested();
 	.cf();
+
+	& when(@debug = true)
+	{
+		.show-row();
+	}
 }
 .nested()
 {
@@ -74,6 +84,11 @@
 	padding-right: @gutter-width / 2;
 	min-height: 1px;
 	.column-fluid(1, 1);
+
+	& when(@debug = true)
+	{
+		.show-column();
+	}
 }
 
 // Column width in em
@@ -127,11 +142,10 @@
 {
 	background-color: rgba(255, 0, 0, 0.1);
 	outline: 1px solid rgba(255, 0, 0, 0.3);
-	padding-top: @gutter-width / 2;
-	padding-bottom: @gutter-width / 2;
-	padding-left: @gutter-width / 2;
-	padding-right: @gutter-width / 2;
-
+}
+.show-wrapper()
+{
+	outline: 1px solid rgba(0, 0, 255, 0.3);	
 }
 
 // Grid generator
