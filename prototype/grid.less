@@ -14,6 +14,11 @@
 .row{.row();}
 // Init columns
 .fluid-grid-generator(4, 4, col-);
+#main-article,
+#main-aside
+{
+	.column-init();
+}
 
 /** Other devices **/
 
@@ -28,27 +33,87 @@
 // For medium screen ≥ 1024
 @media (min-width: @screen-medium)
 {
-	.wrapper{.wrapper(8);}
 	.grid-generator(8, col-m-);
+	.wrapper,
+	#main-header,
+	#main-navigation,
+	#main-content,
+	#main-footer
+	{
+		.wrapper(8);
+	}
+	#main-article
+	{
+		.column(6);
+	}
+	#main-aside
+	{
+		.column(2);
+	}
 }
 
 // For large screen ≥ 1280
 @media (min-width: @screen-large)
 {
-	.wrapper{.wrapper(12);}
 	.grid-generator(12, col-l-);
+	.wrapper,
+	#main-header,
+	#main-navigation,
+	#main-content,
+	#main-footer
+	{
+		.wrapper(12);
+	}
+	#main-article
+	{
+		.column(6);
+	}
+	#main-aside
+	{
+		.column(2);
+	}
 }
 
 // For large screen ≥ 1280
 @media (min-width: @screen-wide)
 {
-	.wrapper{.wrapper(16);}
 	.grid-generator(16, col-w-);
+	.wrapper,
+	#main-header,
+	#main-navigation,
+	#main-content,
+	#main-footer
+	{
+		.wrapper(16);
+	}
+	#main-article
+	{
+		.column(6);
+	}
+	#main-aside
+	{
+		.column(2);
+	}
 }
 
 // For huge screen ≥ 1920
 @media (min-width: @screen-huge)
 {
-	.wrapper{.wrapper(18)}
 	.grid-generator(18, col-h-);
+	.wrapper,
+	#main-header,
+	#main-navigation,
+	#main-content,
+	#main-footer
+	{
+		.wrapper(18);
+	}
+	#main-article
+	{
+		.column(6);
+	}
+	#main-aside
+	{
+		.column(2);
+	}
 }
