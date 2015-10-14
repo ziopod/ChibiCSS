@@ -1,0 +1,40 @@
+/**
+* Navigation
+*
+* Enhance links, buttons and menus
+*
+* @package ChibiCSS
+**/
+
+/**
+* Menus
+*
+* Vertical by default.
+**/
+nav > ul
+{
+	list-style: none;
+	padding-left: 0;
+
+	&.nav-horizontal
+	{
+		li
+		{
+			display: inline-block;
+		}
+	}
+
+	li a
+	{
+		.btn();
+		// display: block;
+		// padding: 0.5em 1em;
+		// text-decoration: none;
+		// text-align: center;
+
+		// &:hover
+		// {
+		// 	background-color: @color-muted-lighter;
+		// }
+	}
+}
