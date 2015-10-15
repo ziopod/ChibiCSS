@@ -23,18 +23,17 @@ nav > ul
 			display: inline-block;
 		}
 	}
+}
 
-	li a
-	{
-		.btn();
-		// display: block;
-		// padding: 0.5em 1em;
-		// text-decoration: none;
-		// text-align: center;
-
-		// &:hover
-		// {
-		// 	background-color: @color-muted-lighter;
-		// }
-	}
+/**
+* Buttons
+**/
+.btn
+{
+	.btn-init();
+	.btn-color();
+}
+.btn-primary
+{
+	.btn-color(@color);
 }
