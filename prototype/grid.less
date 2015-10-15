@@ -6,9 +6,17 @@
 * @package ChibiCSS
 **/
 
-@debug : false;
+@debug : true;
 
 /** Mobile first **/
+// Init wrapper
+body > header,
+body > nav,
+body > main,
+body > footer
+{
+	.wrapper();
+}
 // Init columns
 body > main > article,
 body > main > aside
@@ -36,6 +44,7 @@ body > main > aside
 	body > footer
 	{
 		.wrapper(8);
+		padding: @gutter-width /2;
 	}
 
 	// Columns

@@ -32,6 +32,7 @@
 .wrapper()
 {
 	width: auto;
+	.cf();
 }
 
 // Fixe wrapper
@@ -40,7 +41,6 @@
 	width: @cols * @column-width;
 	margin: 0 auto;
 	overflow: hidden;
-	.cf();
 	clear: both;
 
 	& when(@debug = true)
@@ -140,12 +140,11 @@
 }
 .show-column()
 {
-	background-color: rgba(255, 0, 0, 0.1);
-	outline: 1px solid rgba(255, 0, 0, 0.3);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 .show-wrapper()
 {
-	outline: 1px solid rgba(0, 0, 255, 0.3);	
+	outline: 1px solid rgba(0, 0, 0, 0.3);	
 }
 
 // Grid generator
