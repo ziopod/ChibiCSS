@@ -7,15 +7,11 @@
 **/
 
 // Define root base font
-html
-{
-	// We assume that user agent default font size is 16px
-	font-size:  unit(@normal / @root * 100, %);
-}
-
 body
 {
 	.font();
+	// Set our root font-size in percent
+	font-size:  unit(@normal / @root * 100, %);
 	color: @color-text;
 	padding: 1.5em;
 }
