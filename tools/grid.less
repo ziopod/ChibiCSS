@@ -7,21 +7,23 @@
 **/
 
 /** Configuration **/
-@column-width	: 96px * @pixem;
-@gutter-width	: 24px * @pixem;
+// We assume useragent root font-size take this value
+@root: 16px;
+@column-width	: unit(96px * @pixem, rem);
+@gutter-width	: unit(24px * @pixem, rem);
 
 // Narrow breakpoint, mobile landscape
-@screen-narrow	: 480px;
+@screen-narrow	: unit((480px / @root), em);
 // Small breakpoint, small tablet portrait
-@screen-small	: 600px;
+@screen-small	: unit((600px / @root), em);
 // Medium breakpoint, tablet landscape & small screen
-@screen-medium	: 1024px;
+@screen-medium	: unit((1024px / @root), em);
 // Large breakpoint, standard screen
-@screen-large	: 1280px;
+@screen-large	: unit((1280px / @root), em);
 // Wide breakpoint, wide screen
-@screen-wide	: 1400px;
+@screen-wide	: unit((1400px / @root), em);
 // Huge breakpoint, huge screen
-@screen-huge	: 1920px;
+@screen-huge	: unit((1920px / @root), em);
 
 @debug			: false;
 /**
