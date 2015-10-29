@@ -37,7 +37,7 @@
 * Utilities variables
 **/
 // Pixem
-@pixem: unit((1 / 16px), rem);
+@pixem: unit((1 / @normal), rem);
 
 /**
 * Pixem
@@ -47,7 +47,7 @@
 **/
 .pixem(@size: 1px)
 {
-	@return: unit(@size / 16px, rem);
+	@return: unit(@size / @normal, rem);
 }
 
 /**
