@@ -10,7 +10,7 @@
 html
 {
 	// We assume that user agent default font size is 16px
-	font-size:  unit(@normal / 16px * 100, %);
+	font-size:  unit(@normal / @root * 100, %);
 }
 
 body
@@ -96,6 +96,13 @@ blockquote
 	padding: 1.5em;
 	background-color: @color-muted-lighter;
 	margin-bottom: 1.5em;
+	font-style: italic;
+
+	em,
+	i
+	{
+		font-style: normal;
+	}
 
 	*:last-child
 	{
