@@ -9,8 +9,8 @@
 /** Configuration **/
 // We assume useragent root font-size take this value
 @root: 16px;
-@column-width	: unit(96px * @pixem, rem);
-@gutter-width	: unit(24px * @pixem, rem);
+@column-width	: unit(96px / @root, rem);
+@gutter-width	: unit(24px / @root, rem);
 
 // Narrow breakpoint, mobile landscape
 @screen-narrow	: unit((480px / @root), rem);
