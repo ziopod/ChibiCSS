@@ -21,7 +21,7 @@ h5{.baseline(@large);}
 h6{.baseline(@normal);}
 
 // Semantic nested heading size (use a separate optionnal file?)
-:-moz-any(section, article, aside, nav)
+:-moz-any(section, article, footer, aside, nav)
 {
 	h1 { .baseline(@xxx-large);}
 	h2 { .baseline(@xx-large);}
@@ -29,14 +29,14 @@ h6{.baseline(@normal);}
 	h4 { .baseline(@large);}
 	h5 { .baseline(@normal);}
 
-	:-moz-any(section, article, aside, nav)
+	:-moz-any(section, article, footer, aside, nav)
 	{
 		h1 { .baseline(@xx-large);}
 		h2 { .baseline(@x-large);}
 		h3 { .baseline(@large);}
 		h4 { .baseline(@normal);}
 
-		:-moz-any(section, article, aside, nav)
+		:-moz-any(section, article, footer, aside, nav)
 		{	
 			h1 { .baseline(@x-large);}
 			h2 { .baseline(@large);}
@@ -44,7 +44,7 @@ h6{.baseline(@normal);}
 		}
 	}
 }
-:-webkit-any(section, article, aside, nav)
+:-webkit-any(section, article, footer, aside, nav)
 {
 	h1 { .baseline(@xxx-large);}
 	h2 { .baseline(@xx-large);}
@@ -53,14 +53,14 @@ h6{.baseline(@normal);}
 	h5 { .baseline(@normal);}
 	h6 { .baseline(@normal);}
 
-	:-webkit-any(section, article, aside, nav)
+	:-webkit-any(section, article, footer, aside, nav)
 	{
 		h1 { .baseline(@xx-large);}
 		h2 { .baseline(@x-large);}
 		h3 { .baseline(@large);}
 		h4 { .baseline(@normal);}
 
-		:-webkit-any(section, article, aside, nav)
+		:-webkit-any(section, article, footer, aside, nav)
 		{	
 			h1 { .baseline(@x-large);}
 			h2 { .baseline(@large);}
