@@ -13,6 +13,7 @@
 **/
 @color-skyblue			: #5886D0;
 @color					: @color-skyblue;
+@color-primary			: @color;
 // B&W
 @color-black			: #000;
 @color-white			: #FFF;
@@ -63,25 +64,39 @@
 @color-saturate: saturate(@color, 15);
 @color-desaturate: desaturate(@color, 15);
 // Monochromatic variant
-@color-mono-100: hsl(@hue, 100%, 100%);
-@color-mono-75: hsl(@hue, 75%, 100%);
-@color-mono-50: hsl(@hue, 50%, 100%);
-@color-mono-25: hsl(@hue, 25%, 100%);
-@color-mono-10: hsl(@hue, 10%, 100%);
+@color-mono-10: hsl(@hue, 100%, 10%);
+@color-mono-20: hsl(@hue, 100%, 20%);
+@color-mono-30: hsl(@hue, 100%, 30%);
+@color-mono-40: hsl(@hue, 100%, 40%);
+@color-mono-50: hsl(@hue, 100%, 50%);
+@color-mono-60: hsl(@hue, 100%, 60%);
+@color-mono-70: hsl(@hue, 100%, 70%);
+@color-mono-80: hsl(@hue, 100%, 80%);
+@color-mono-90: hsl(@hue, 100%, 90%);
 // Achromatic (muted) variant
-@color-muted: desaturate(@color, saturation(@color) * 0.82);
+@color-muted: desaturate(@color, saturation(@color) * 0.85);
 @color-muted-darker: darken(@color-muted, @luma * 0.66);
 @color-muted-dark: darken(@color-muted, @luma * 0.33);
 @color-muted-light: lighten(@color-muted, (100 - @luma) * 0.33);
 @color-muted-lighter: lighten(@color-muted, (100 - @luma) * 0.50);
 // Complementary
 @color-complementary: spin(@color, 180);
+@color-complementary-right: spin(@color, 140);
+@color-complementary-left: spin(@color, 220);
 // Analogous
-@color-analogous-left: spin(@color: 15);
-@color-analogous-right: spin(@color, -15);
+@color-al-10: spin(@color, 10);
+@color-al-20: spin(@color, 20);
+@color-al-30: spin(@color, 30);
+@color-ar-10: spin(@color, -10);
+@color-ar-20: spin(@color, -20);
+@color-ar-30: spin(@color, -30);
 // Triadic
-@color-triadic-left: spin(@color, 120);
-@color-triadic-right: spin(@color, -120);
+@color-tl-80: spin(@color, -80);
+@color-tl-90: spin(@color, -90);
+@color-tl-100: spin(@color, -100);
+@color-tr-80: spin(@color, 80);
+@color-tr-90: spin(@color, 90);
+@color-tr-100: spin(@color, 100);
 
 /**
 * Colomaton
@@ -97,9 +112,9 @@
 	@hue: hue(@color);
 	@saturation: saturation(@color);
 	@lightness: lightness(@color);
-	@red: red(@color);
-	@blue: blue(@color);
-	@green: green(@color);
+	@red: ceil(red(@color));
+	@blue: ceil(blue(@color));
+	@green: ceil(green(@color));
 	@alpha: alpha(@color);
 	@hexadecimal: @color;
 
@@ -111,7 +126,7 @@
 
 	.color-@{suffix}
 	{
-		background-color: @color;
+		background-color: ~"@{color-@{suffix}}";
 		color: contrast(@color);
 	}
 }
