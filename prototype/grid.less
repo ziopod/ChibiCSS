@@ -10,18 +10,20 @@
 
 /** Mobile first **/
 // Init wrapper
+.wrapper{.wrapper();}
 body > header,
 body > nav,
 body > main,
 body > footer
 {
-	.wrapper();
+	&:extend(.wrapper);
 }
 // Init columns
+.column-init{.column-init();}
 body > main > article,
 body > main > aside
 {
-	.column-init();
+	&:extend(.column-init);
 }
 
 /** Other devices **/
