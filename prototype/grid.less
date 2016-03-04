@@ -10,13 +10,13 @@
 
 /** Mobile first **/
 // Init wrapper
-.wrapper{.wrapper();}
+.wrapper{.wrapper(); .cf();}
 body > header,
 body > nav,
 body > main,
 body > footer
 {
-	&:extend(.wrapper);
+	&:extend(.wrapper all);
 }
 // Init columns
 .column-init{.column-init();}
