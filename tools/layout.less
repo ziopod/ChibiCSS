@@ -74,7 +74,9 @@
 	}
 
 	&:hover,
-	&.current
+	&:focus,
+	&:active,
+	&.current,
 	{
 		background-color: darken(saturate(@color-hover, 15), 2);
 		color: contrast(@color-hover);
