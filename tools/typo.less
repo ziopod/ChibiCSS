@@ -52,7 +52,7 @@
 
 /**
 * Font-size
-* Set REM font-size, based on size name
+* Set EM font-size, based on size name
 * Usage: .font-size(@large)
 *
 * @param	string		font-size
@@ -61,6 +61,7 @@
 {
 	.pixem(@size);
 	font-size: unit(@return, em);
+	line-height: @line-height;
 }
 
 /**
