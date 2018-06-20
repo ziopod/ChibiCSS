@@ -1,0 +1,10 @@
+{
+  "name": "ChibiCSS",
+  "version": "0.0.0",
+  "description": "Little and lovely CSS framework",
+  "main": "index.js",
+  "repository": "https://github.com/ziopod/ChibiCSS.git",
+  "author": "Ziopod <ziopod@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
