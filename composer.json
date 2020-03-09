@@ -1,0 +1,24 @@
+{
+	"name": "ziopod/chibicss",
+	"type": "less-css",
+	"description": " Little and lovely CSS framework",
+	"Keyword": ["Framework", "CSS", "LESS"],
+	"homepage": "http://ziopod.com",
+	"licence": "MIT",
+	"authors": [
+		{
+			"name": "Steve Beau",
+			"email": "ziopod@gmail.com",
+			"role": "developer"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	},
+	"extra": {
+        "installer-paths": {
+            "assets/{$name}": ["type:less-css"]
+        }		
+	}
+
+}
