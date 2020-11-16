@@ -8,9 +8,16 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "stylelint": "stylelint chibi/**/*.css"
+    "stylelint": "stylelint chibi/**/*.css",
+    "postcss": "postcss chibicss.css -o chibicss.min.css"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss": "^8.1.7",
+    "postcss-cli": "^8.2.0",
+    "postcss-csso": "^5.0.0",
+    "postcss-import": "^13.0.0",
+    "postcss-preset-env": "^6.7.0",
     "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0"
   }
