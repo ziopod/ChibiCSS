@@ -1,0 +1,25 @@
+/**
+ * ChibiCSS
+ *
+ * Each file declare its own variables.
+ */
+
+@import 'chibi/_settings.css';
+@import 'chibi/bases.css';
+@import 'chibi/headings.css';
+@import 'chibi/links.css';
+@import 'chibi/lists.css';
+@import 'chibi/tables.css';
+@import 'chibi/codes.css';
+
+/* Note :
+Grâce aux vriables, beaucoup de propriétés CSS possèdent des valeurs identique. Serait-il pertinent des regrouper les sélecteurs CSS qui possèdent les mêmes valeurs.
+Exemple :
+Toutes les modifications de tailles de corps
+~~~
+body, heading, pre, code, table caption { font-size: var(--font-size); }
+~~~
+Le risque est de devoir réperter plus de selecteur que de propriété CSS.
+Laisser ça à la charge d'un algorythme (https://css.github.io/csso/csso.html)
+Ou carément utiliser le sélecteur universel `*` (perormance ?)
+*/

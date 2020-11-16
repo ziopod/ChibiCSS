@@ -1,0 +1,79 @@
+/** Bases **/
+:root {
+  --font-family: -apple-system, system-ui, "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", sans-serif;
+  --line-height: 1.5em;
+  --color: #454545;
+  --font-size: 1.125rem;
+  --margin: 0 0 calc(var(--font-size) * 1.5);
+}
+
+/** Headings **/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --font-family: inherit;
+  --line-height: 1em;
+  --font-weight: 400;
+  --color: #454444;
+}
+
+h1 { --font-size: 3em; }
+h2 { --font-size: 2.5em; }
+h3 { --font-size: 2em; }
+h4 { --font-size: 1.5em; }
+
+h5,
+h6 {
+  --font-size: 1em;
+  --font-weight: 800;
+}
+
+/** Links **/
+a { --color: #2d2d2d; }
+a:visited { --color: #686868; }
+a:hover { --color: #000; }
+a:active { --color: #a60000; }
+
+/** Tables **/
+table td {
+  --border-width: thin;
+  --border-color: inherit;
+}
+
+table th {
+  --border-width: medium;
+  --border-color: inherit;
+}
+
+table caption { --font-size: 0.8em; }
+
+/** Codes **/
+pre,
+code {
+  /* Anti-aliasing for white text on black background */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --font-family: "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace;
+  --font-size: 0.8em;
+}
+
+pre {
+  --background-color: #282c34;
+  --color: white;
+}
+
+code {
+  --background-color: #ecedee;
+  --color: #282c34;
+}
+
+/** Blockquote **/
+blockquote {
+  --color: #646464;
+  --border-color: #888;
+  --border-width: medium;
+}

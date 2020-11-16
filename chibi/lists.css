@@ -1,0 +1,8 @@
+/**
+ * Lists
+ */
+
+ul,
+ol { padding-left: var(--font-size); }
+dt { font-weight: bold; }
+dd { margin-left: 0; }

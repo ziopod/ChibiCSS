@@ -1,0 +1,42 @@
+/**
+ * Bases
+ */
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--color);
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article,
+aside,
+details,
+figure,
+figcaption,
+p,
+pre,
+blockquote,
+table,
+address,
+dl,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 { margin: var(--margin); }
+
+blockquote {
+  padding: 1.25em 1.5em;
+  border-left: var(--border-width) solid var(--border-color);
+  color: var(--color);
+  font-style: italic;
+}
+
+blockquote p:last-child { margin-bottom: 0; }
